@@ -98,7 +98,7 @@ public class AnalogShiningFace extends CanvasWatchFaceService implements DataApi
     @Override
     public void onConnected(Bundle bundle) {
         Wearable.DataApi.addListener(mGoogleApiClient, this);
-        Log.d("SUNSHINE", "Connected.");
+        Log.d("Sunshine", "Connected.");
     }
 
     @Override
@@ -127,13 +127,13 @@ public class AnalogShiningFace extends CanvasWatchFaceService implements DataApi
             if (iconAsset != null)
                 mBitmap = loadBitmap(iconAsset);
 
-            Log.d("SUNSHINE", "Data changed.");
+            Log.d("Sunshine", "Data changed.");
         }
     }
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
-        Log.d("SUNSHINE", "Connection failed.");
+        Log.d("Sunshine", "Connection failed.");
     }
 
     public Bitmap loadBitmap(Asset asset) {
@@ -148,10 +148,10 @@ public class AnalogShiningFace extends CanvasWatchFaceService implements DataApi
         // convert asset into a file descriptor and block until it's ready
         InputStream assetInputStream = Wearable.DataApi.getFdForAsset(
                 mGoogleApiClient, asset).await().getInputStream();
-        mGoogleApiClient.disconnect();
+//        mGoogleApiClient.disconnect();
 
         if (assetInputStream == null) {
-            Log.w("SUNSHINE", "Requested an unknown Asset.");
+            Log.w("Sunshine", "Requested an unknown Asset.");
             return null;
         }
         // decode the stream into a bitmap
